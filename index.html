@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webbteknik 2 - Uppgift U3</title>
+    <meta name="Author" content="Mitt namn">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Webbteknik 2 — Uppgift 3</h1>
+        <h2>Drag-and-drop</h2>
+    </header>
+    <main>
+        <div id="gameInstructions">
+            <h2>Ett litet spel med brickor</h2>
+            <p>Spelplanen består av 16 platser dit du ska dra brickor med siffror. Målet är att i så många rader och kolumner som möjligt få en stigande serie, dvs för varje ruta ska siffran till höger eller under vara större. Totalt finns det 40 brickor med talen 1 till 40. Ur dessa får du fyra brickor i taget och ska dra dem till spelplanen. Du får 1 poäng för varje rad eller kolumn som har en stigande serie. Du kan spela flera gånger och på så sätt samla ihop fler poäng.</p>
+        </div>
+
+        <div id="board"> <!-- Spelplanen -->
+            <!-- I div-elementen används klasserna s0, s1, etc. för att markera de brickor som ingår
+				 i en serie (rad eller kolumn). s0 - s3 är raderna och s4 - s7 är kolumnerna.
+				 Elementen som har id "result-sX", är de element där det ska läggas en bock eller
+				 ett kryss (med en klass), då serien X kontrollerats i slutet av spelet. -->
+            <div class="tile s0 s4"></div> <!-- Serie s0 och s4 -->
+            <div class="tile s0 s5"></div> <!-- Serie s0 och s5 -->
+            <div class="tile s0 s6"></div> <!-- Serie s0 och s6 -->
+            <div class="tile s0 s7"></div> <!-- Serie s0 och s7 -->
+            <div id="result-s0" class="result"></div> <!-- Markör för serie s0 -->
+
+            <div class="tile s1 s4"></div>
+            <div class="tile s1 s5"></div>
+            <div class="tile s1 s6"></div>
+            <div class="tile s1 s7"></div>
+            <div id="result-s1" class="result"></div>
+
+            <div class="tile s2 s4"></div>
+            <div class="tile s2 s5"></div>
+            <div class="tile s2 s6"></div>
+            <div class="tile s2 s7"></div>
+            <div id="result-s2" class="result"></div>
+
+            <div class="tile s3 s4"></div>
+            <div class="tile s3 s5"></div>
+            <div class="tile s3 s6"></div>
+            <div class="tile s3 s7"></div>
+            <div id="result-s3" class="result"></div>
+
+            <div id="result-s4" class="result"></div>
+            <div id="result-s5" class="result"></div>
+            <div id="result-s6" class="result"></div>
+            <div id="result-s7" class="result"></div>
+        </div> <!-- Slut på spelplanen -->
+
+        <div id="control">
+            <button type="button" id="newGameBtn">Nytt spel</button>
+            <div id="newTiles"> <!-- Nya brickor som väljs slumpmässigt -->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+            </div>
+            <button type="button" id="newTilesBtn">Nya brickor</button>
+            <div id="message"></div> <!-- Meddelande till användaren -->
+        </div>
+
+        <div id="userInfo">
+            <p>Total poäng: <span id="totPoints">0</span></p>
+
+            <!-- Används i VG-uppgiften -->
+            <p>Antal spel: <span id="countGames">0</span></p>
+        </div>
+
+        <!-- Används i VG-uppgiften -->
+        <img src="img/ghost.png" alt="spöke" id="ghost">
+
+    </main>
+
+    <footer>
+        <p>Uppgift i Webbteknik 2 kodad i JS by Gordana Mihailovic Svensson</p>
+    </footer>
+
+</body>
+
+</html>
