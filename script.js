@@ -12,6 +12,7 @@ let availableNumbers = []; // hur många siffror är kvar att använda (1-40)
 let tilesPlacedThisRound = 0; //hur många av de 4 brickorna som placerats
 let totalPoints = 0; // totalpoäng för alla spelomgångar
 let gamesCount = 0; // antal spelade omgångar
+let currentTile= null; //bricka som spelaren dra just nu
 
 // Startinställningar- en lyssnare på window-objektet som väntar på att allt ska laddas klart (load) innan vi förbereder spelet.
 window.addEventListener("load", function() {
@@ -20,6 +21,7 @@ window.addEventListener("load", function() {
     newTilesBtn.addEventListener("click", getFourNewTiles);
     
     setupDragAndDrop();// Förbered spelplanens rutor
+    
 });
 
 // Funktioner 
@@ -55,6 +57,7 @@ function startNewGame() {
     newTilesBtn.disabled = false;
  // uppdateras text (med hjälp av TextContent ändras text som spelaren se på sin skärm)
     messageArea.textContent = "Lycka till! Dra brickorna till planen.";
+    getFourNewTiles();
 }
 
 // 2. Hämtar 4 slumpmässiga brickor
@@ -80,7 +83,8 @@ function getFourNewTiles() {
             // Spara vilket nummer vi drar i
             bricka.addEventListener("dragstart", function(handelse) {
                 handelse.dataTransfer.setData("text", handelse.target.textContent);
-                handelse.target.id = "dragging-now"; 
+                currentTile = handelse.target; //spara vilekn brickan som dras 
+                // De är gammal verison som byt mot den upppe handelse.target.id = "dragging-now"; 
             });
         }
     }
@@ -114,11 +118,11 @@ function setupDragAndDrop() {
 
 
 // Töm rutan på hyllan efter att spelaren har släppt den på planen
- let dragenBricka = document.getElementById("dragging-now");
-    if (dragenBricka) {
-        dragenBricka.textContent = "";
-         dragenBricka.draggable = false;
-         dragenBricka.id = ""; 
+ // BYTT-DEN ÄR GAMMALlet dragenBricka = document.getElementById("dragging-now");
+    if (currentTile) {
+        currentTile.textContent = "";
+         currentTile.draggable = false;
+         currentTile= null; 
  }
 
          tilesPlacedThisRound = tilesPlacedThisRound + 1;
