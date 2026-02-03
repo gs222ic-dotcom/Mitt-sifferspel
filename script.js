@@ -85,7 +85,12 @@ function getFourNewTiles() {
                 handelse.dataTransfer.setData("text", handelse.target.textContent);
                 currentTile = handelse.target; //spara vilekn brickan som dras 
                 // De är gammal verison som byt mot den upppe handelse.target.id = "dragging-now"; 
+                
             });
+
+            bricka.addEventListener("dragend", function () {
+            currentTile = null;
+});
         }
     }
 }
