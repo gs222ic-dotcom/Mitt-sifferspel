@@ -14,13 +14,13 @@ let totalPoints = 0; // totalpoäng för alla spelomgångar
 let gamesCount = 0; // antal spelade omgångar
 let currentTile= null; //bricka som spelaren dra just nu
 
-// Startinställningar- en lyssnare på window-objektet som väntar på att allt ska laddas klart (load) innan vi förbereder spelet.
+// Startinställningar- en lyssnare på window-objektet som väntar på att allt ska laddas klar innan vi förbereder spel
 window.addEventListener("load", function() {
     newTilesBtn.disabled = true; 
     newGameBtn.addEventListener("click", startNewGame);
     newTilesBtn.addEventListener("click", getFourNewTiles);
     
-    setupDragAndDrop();// Förbered spelplanens rutor
+    setupDragAndDrop();// förbered spelplanens rutor
     
 });
 
@@ -64,7 +64,7 @@ function startNewGame() {
 function getFourNewTiles() {
     newTilesBtn.disabled = true; 
     tilesPlacedThisRound = 0;
-//används loop att gå igenom de 4 platserna på hyllan (shelfTiles)istället för att skriva samma kod 4 gånger
+//används loop att gå igenom de 4 platserna på hyllan istället för att skriva samma kod 4 gånger
     for (let i = 0; i < shelfTiles.length; i++) {//loop
         let bricka = shelfTiles[i];
 
@@ -123,7 +123,6 @@ function setupDragAndDrop() {
 
 
 // Töm rutan på hyllan efter att spelaren har släppt den på planen
- // BYTT-DEN ÄR GAMMALlet dragenBricka = document.getElementById("dragging-now");
     if (currentTile) {
         currentTile.textContent = "";
          currentTile.draggable = false;
@@ -171,7 +170,7 @@ let poängDennaRunda = 0;
         let v3 = parseInt(serieRutor[2].textContent);
         let v4 = parseInt(serieRutor[3].textContent);
         
-        // med hjälp av if/elese satser kollar om de ligger i stigande ordning
+        // med hjälp av if/elese sats kollar om de ligger i stigande ordning
         if (v1 < v2 && v2 < v3 && v3 < v4) {
             document.getElementById("result-s" + i).classList.add("check");
             poängDennaRunda = poängDennaRunda + 1;
