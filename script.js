@@ -137,7 +137,7 @@ function setupDragAndDrop() {
     }
 }
 
-// Kollar om behövs fler brickor eller om spelet är slut
+// kollar om behövs fler brickor eller om spelet är slut
 function checkRoundProgress() {
     if (tilesPlacedThisRound === 4) {
 // räkna hur många rutor som totalt är fyllda på spelplanen
@@ -165,7 +165,7 @@ let poängDennaRunda = 0;
     for (let i = 0; i <= 7; i++) {
         let serieRutor = document.querySelectorAll(".s" + i);
 
-        //Gör om texten till riktiga siffror med hjälp av textContent
+        //gör om texten till riktiga siffror med hjälp av textContent
         let v1 = parseInt(serieRutor[0].textContent);
         let v2 = parseInt(serieRutor[1].textContent);
         let v3 = parseInt(serieRutor[2].textContent);
